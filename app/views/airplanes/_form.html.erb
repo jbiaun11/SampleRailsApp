@@ -1,0 +1,32 @@
+<%= form_with(model: airplane) do |form| %>
+  <% if airplane.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(airplane.errors.count, "error") %> prohibited this airplane from being saved:</h2>
+
+      <ul>
+        <% airplane.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :iata_code, style: "display: block" %>
+    <%= form.text_field :iata_code %>
+  </div>
+
+  <div>
+    <%= form.label :icao_code, style: "display: block" %>
+    <%= form.text_field :icao_code %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
